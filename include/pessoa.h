@@ -1,7 +1,7 @@
 #ifndef PESSOA_H
 #define PESSOA_H
-#include "listaAmigo.h"
 #include "listaPlaylist.h"
+#include "listaAmigo.h"
 
 
 typedef struct pessoa Pessoa;
@@ -10,7 +10,7 @@ Pessoa* criaPessoa(char* nome);
 
 char* getNomePessoa(Pessoa* p);
 
-//ListaAmigo* getListaAmigoPessoa(Pessoa* p);
+ListaAmigo* getListaAmigoPessoa(Pessoa* p);
 
 ListaPlaylist* getListaPlaylistPessoa(Pessoa* p);
 

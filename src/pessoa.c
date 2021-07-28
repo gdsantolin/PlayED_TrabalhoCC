@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../include/pessoa.h"
-#include "../include/listaPessoa.h"
-#include "../include/listaAmigo.h"
-#include "../include/listaPlaylist.h"
+#include "pessoa.h"
+#include "listaAmigo.h"
 
 
 struct pessoa{

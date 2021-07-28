@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../include/listaAmigo.h"
+#include "listaAmigo.h"
 
 typedef struct celula_amigo CelAmigo;
 
 struct celula_amigo{
-    Pessoa* pessoa;
+    void* pessoa;
     CelAmigo* prox;
 };
 
@@ -23,7 +23,7 @@ ListaAmigo* iniciaListaAmigo(){
     return lista;
 }
 
-void insereListaAmigo(ListaAmigo* lista, Pessoa* p){
+void insereListaAmigo(ListaAmigo* lista, void* p){
     CelAmigo* cel_nova = (CelAmigo*)malloc(sizeof(CelAmigo));
 
     cel_nova->pessoa = p;

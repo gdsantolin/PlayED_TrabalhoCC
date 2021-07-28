@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../include/listaPessoa.h"
+#include "listaPessoa.h"
 
 typedef struct celula_pessoa CelPessoa;
 

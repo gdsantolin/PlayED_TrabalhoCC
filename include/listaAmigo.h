@@ -1,12 +1,11 @@
 #ifndef LISTA_AMIGO_H
 #define LISTA_AMIGO_H
-#include "pessoa.h"
 
 typedef struct lista_amigo ListaAmigo;
 
 ListaAmigo* iniciaListaAmigo();
 
-void insereListaAmigo(ListaAmigo* lista, Pessoa* p); //como inserir???
+void insereListaAmigo(ListaAmigo* lista, void* p); //como inserir???
 
 void imprimeListaAmigo(ListaAmigo* lista);
 
