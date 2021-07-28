@@ -15,3 +15,9 @@ struct pessoa{
 char* getNomePessoa(Pessoa* p){
     return p->nome;
 }
+
+void destroiPessoa(Pessoa* p){
+    free(p->nome);
+    destroiListaAmigo(p->amigos);
+    destroiListaPlaylist(p->playlists);
+}

@@ -14,3 +14,15 @@ struct lista_amigo{
     CelAmigo* prim;
     CelAmigo* ult;
 };
+
+void destroiListaAmigo(ListaAmigo* lista){
+    CelAmigo* cel_atual = lista->prim;
+    CelAmigo* cel_prox;
+
+    while(cel_atual != NULL){
+        cel_prox = cel_atual->prox;
+        free(cel_atual);
+        cel_atual = cel_prox;
+  }
+  free(lista);
+}

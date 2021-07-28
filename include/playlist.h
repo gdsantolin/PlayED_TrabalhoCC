@@ -5,4 +5,6 @@ typedef struct playlist Playlist;
 
 char* getNomePlaylist(Playlist* p);
 
+void destroiPlaylist(Playlist* p);
+
 #endif

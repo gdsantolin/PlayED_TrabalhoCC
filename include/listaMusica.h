@@ -5,4 +5,6 @@ typedef struct celula_musica CelMusica;
 
 typedef struct lista_musica ListaMusica;
 
+void destroiListaMusica(ListaMusica* lista);
+
 #endif

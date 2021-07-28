@@ -5,4 +5,6 @@ typedef struct pessoa Pessoa;
 
 char* getNomePessoa(Pessoa* p);
 
+void destroiPessoa(Pessoa* p);
+
 #endif

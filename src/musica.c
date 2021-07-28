@@ -17,3 +17,7 @@ char* getBandaMusica(Musica* msc){
     return msc->banda;
 }
 
+void destroiMusica(Musica* msc){
+    free(msc->banda);
+    free(msc->nome);
+}

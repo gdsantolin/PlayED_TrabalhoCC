@@ -5,4 +5,6 @@ typedef struct celula_amigo CelAmigo;
 
 typedef struct lista_amigo ListaAmigo;
 
+void destroiListaAmigo(ListaAmigo* lista);
+
 #endif

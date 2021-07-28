@@ -14,3 +14,8 @@ struct playlist{
 char* getNomePlaylist(Playlist* p){
     return p->nome;
 }
+
+void destroiPlaylist(Playlist* p){
+    free(p->nome);
+    destroiListaMusica(p->musicas);
+}
