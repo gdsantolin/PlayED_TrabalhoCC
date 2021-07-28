@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../include/amigo.h"
 #include "../include/listaAmigo.h"
-#include "../include/pessoa.h"
+
+typedef struct celula_amigo CelAmigo;
 
 struct celula_amigo{
     Pessoa* pessoa;
@@ -24,14 +24,18 @@ ListaAmigo* iniciaListaAmigo(){
 }
 
 void insereListaAmigo(ListaAmigo* lista, Pessoa* p){
-  CelAmigo* cel_nova = (CelAmigo*)malloc(sizeof(CelAmigo));
+    CelAmigo* cel_nova = (CelAmigo*)malloc(sizeof(CelAmigo));
 
-  cel_nova->pessoa = p;
-  cel_nova->prox = NULL;
-  lista->ult->prox = cel_nova; 
-
-  lista->ult = cel_nova;
-  if(lista->prim == NULL) lista->prim = cel_nova;
+    cel_nova->pessoa = p;
+    cel_nova->prox = NULL;
+    if(lista->prim == NULL){
+        lista->prim = cel_nova;
+        lista->ult = cel_nova;
+    }
+    else{
+        lista->ult->prox = cel_nova; 
+        lista->ult = cel_nova;
+    }
 }
 
 void destroiListaAmigo(ListaAmigo* lista){

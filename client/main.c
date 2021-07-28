@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "../include/pessoa.h"
+#include "../include/listaPessoa.h"
 
 int main(){
-    printf("Ola Leo\n");
-    }
+    ListaPessoa* pessoas = iniciaListaPessoa();
+    preencheListaPessoa(pessoas);
+    destroiListaPessoa(pessoas);
+}

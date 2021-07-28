@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../include/musica.h"
 #include "../include/listaMusica.h"
+
+typedef struct celula_musica CelMusica;
 
 struct celula_musica{
     Musica* msc;
@@ -23,14 +24,18 @@ ListaMusica* iniciaListaMusica(){
 }
 
 void insereListaMusica(ListaMusica* lista, Musica* msc){
-  CelMusica* cel_nova = (CelMusica*)malloc(sizeof(CelMusica));
+    CelMusica* cel_nova = (CelMusica*)malloc(sizeof(CelMusica));
 
-  cel_nova->msc = msc;
-  cel_nova->prox = NULL;
-  lista->ult->prox = cel_nova; 
-
-  lista->ult = cel_nova;
-  if(lista->prim == NULL) lista->prim = cel_nova;
+    cel_nova->msc = msc;
+    cel_nova->prox = NULL;
+    if(lista->prim == NULL){
+        lista->prim = cel_nova;
+        lista->ult = cel_nova;
+    }
+    else{
+        lista->ult->prox = cel_nova; 
+        lista->ult = cel_nova;
+    }
 }
 
 void destroiListaMusica(ListaMusica* lista){

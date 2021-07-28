@@ -1,7 +1,6 @@
 #ifndef LISTA_AMIGO_H
 #define LISTA_AMIGO_H
 #include "pessoa.h"
-typedef struct celula_amigo CelAmigo;
 
 typedef struct lista_amigo ListaAmigo;
 

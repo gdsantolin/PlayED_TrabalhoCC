@@ -2,13 +2,11 @@
 #define LISTA_PLAYLIST_H
 #include "playlist.h"
 
-typedef struct celula_playlist CelPlaylist;
-
 typedef struct lista_playlist ListaPlaylist;
 
 ListaPlaylist* iniciaListaPlaylist();
 
-void insereListaPlaylist(ListaPlaylist* lista, Playlist* p);
+void insereListaPlaylist(ListaPlaylist* lista, Playlist* playlist);
 
 void imprimeListaPlaylist(ListaPlaylist* lista);
 
