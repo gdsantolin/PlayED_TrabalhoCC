@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "listaPlaylist.h"
+#include "../include/listaPlaylist.h"
 
 typedef struct celula_playlist CelPlaylist;
 

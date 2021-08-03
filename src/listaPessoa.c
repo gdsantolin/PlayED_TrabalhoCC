@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "listaPessoa.h"
+#include "../include/listaPessoa.h"
 
 typedef struct celula_pessoa CelPessoa;
 
@@ -60,18 +60,31 @@ void destroiListaPessoa(ListaPessoa* lista){
     free(lista);
 }
 
+Pessoa* buscaPessoa(ListaPessoa* lista, char* chave){
+    CelPessoa* cel_aux;
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        if(strcmp(getNomePessoa(cel_aux->pessoa), chave) == 0) return cel_aux->pessoa;
+    }
+    return NULL;
+}
+
 void preencheListaPessoa(ListaPessoa* lista){
     FILE* arq = fopen("data/amizade.txt", "r");
-    char nome_aux[100], quebra;
+    char linha[100], nome_aux[100], quebra;
+    char nome1[50], nome2[50];
     Pessoa* pessoa; 
 
     while(fscanf(arq, "%99[^;^\n]%c", nome_aux, &quebra) == 2){
         pessoa = criaPessoa(nome_aux);
         insereListaPessoa(lista, pessoa);
         if(quebra == '\n') break;
-    }
+    }  
 
-    imprimeListaPessoa(lista);
+    preencheListaAmigo(arq, lista);
+
+
+    //preencheListaPlaylist();
+    //imprimeListaPessoa(lista);
 
     fclose(arq);
 }

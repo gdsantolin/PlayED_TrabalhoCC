@@ -1,8 +1,9 @@
 #ifndef LISTA_PLAYLIST_H
 #define LISTA_PLAYLIST_H
-#include "playlist.h"
 
 typedef struct lista_playlist ListaPlaylist;
+
+#include "playlist.h"
 
 ListaPlaylist* iniciaListaPlaylist();
 

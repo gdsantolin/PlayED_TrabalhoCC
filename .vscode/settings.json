@@ -1,6 +1,11 @@
 {
     "files.associations": {
         "string.h": "c",
-        "listaamigo.h": "c"
+        "listaamigo.h": "c",
+        "listapessoa.h": "c",
+        "listaplaylist.h": "c",
+        "musica.h": "c",
+        "pessoa.h": "c",
+        "playlist.h": "c"
     }
 }

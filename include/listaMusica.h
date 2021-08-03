@@ -1,8 +1,9 @@
 #ifndef LISTA_MUSICA_H
 #define LISTA_MUSICA_H
-#include "musica.h"
 
 typedef struct lista_musica ListaMusica;
+
+#include "musica.h"
 
 ListaMusica* iniciaListaMusica();
 

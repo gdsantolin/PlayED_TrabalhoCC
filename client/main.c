@@ -6,6 +6,6 @@
 int main(){
     ListaPessoa* pessoas = iniciaListaPessoa();
     preencheListaPessoa(pessoas);
-    
+    imprimeListaPessoa(pessoas);
     destroiListaPessoa(pessoas);
 }

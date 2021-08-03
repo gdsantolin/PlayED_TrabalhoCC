@@ -1,9 +1,9 @@
 #ifndef PLAYLIST_H
 #define PLAYLIST_H
 
-#include "listaMusica.h"
-
 typedef struct playlist Playlist;
+
+#include "listaMusica.h"
 
 char* getNomePlaylist(Playlist* p);
 

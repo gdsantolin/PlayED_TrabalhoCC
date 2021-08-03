@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "pessoa.h"
-#include "listaAmigo.h"
+#include "../include/pessoa.h"
 
 
 struct pessoa{
@@ -33,7 +32,9 @@ ListaPlaylist* getListaPlaylistPessoa(Pessoa* p){
 }
 
 void imprimePessoa(Pessoa* p){
-    printf("lista: %s\n", p->nome);
+    printf("%s\n", p->nome);
+    printf("Amigos:\n");
+    imprimeListaAmigo(getListaAmigoPessoa(p));
 }
 
 void destroiPessoa(Pessoa* p){

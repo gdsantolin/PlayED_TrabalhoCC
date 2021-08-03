@@ -1,10 +1,10 @@
 #ifndef PESSOA_H
 #define PESSOA_H
-#include "listaPlaylist.h"
-#include "listaAmigo.h"
-
 
 typedef struct pessoa Pessoa;
+
+#include "listaPlaylist.h"
+#include "listaAmigo.h"
 
 Pessoa* criaPessoa(char* nome);
 
