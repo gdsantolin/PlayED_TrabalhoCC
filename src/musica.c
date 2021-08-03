@@ -16,7 +16,20 @@ char* getBandaMusica(Musica* msc){
     return msc->banda;
 }
 
+Musica* preencheMusica(char* nome_banda, char* nome_musica){
+    Musica* msc = (Musica*)malloc(sizeof(Musica));
+    msc->banda = strdup(nome_banda);
+    msc->nome = strdup(nome_musica);
+
+    return msc;
+}
+
+void imprimeMusica(Musica* msc){
+    printf("%s | %s\n", msc->banda, msc->nome);
+}
+
 void destroiMusica(Musica* msc){
     free(msc->banda);
     free(msc->nome);
+    free(msc);
 }

@@ -38,6 +38,13 @@ void insereListaMusica(ListaMusica* lista, Musica* msc){
     }
 }
 
+void imprimeListaMusica(ListaMusica* lista){
+    CelMusica* cel_aux;
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        imprimeMusica(cel_aux->msc);
+    }
+}
+
 void destroiListaMusica(ListaMusica* lista){
     CelMusica* cel_atual = lista->prim;
     CelMusica* cel_prox;

@@ -41,7 +41,9 @@ void insereListaPessoa(ListaPessoa* lista, Pessoa* p){
 void imprimeListaPessoa(ListaPessoa* lista){
     CelPessoa* cel_aux;
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
-        imprimePessoa(cel_aux->pessoa);
+        //imprimePessoa(cel_aux->pessoa);
+        imprimeListaPlaylist(getListaPlaylistPessoa(cel_aux->pessoa));
+        printf("\n-----------------\n");
     }
 }
 
@@ -69,22 +71,17 @@ Pessoa* buscaPessoa(ListaPessoa* lista, char* chave){
 }
 
 void preencheListaPessoa(ListaPessoa* lista){
-    FILE* arq = fopen("data/amizade.txt", "r");
+    FILE* arqAmigos = fopen("data/amizade.txt", "r");
     char linha[100], nome_aux[100], quebra;
-    char nome1[50], nome2[50];
     Pessoa* pessoa; 
-
-    while(fscanf(arq, "%99[^;^\n]%c", nome_aux, &quebra) == 2){
+    
+    while(fscanf(arqAmigos, "%99[^;^\n]%c", nome_aux, &quebra) == 2){
         pessoa = criaPessoa(nome_aux);
         insereListaPessoa(lista, pessoa);
         if(quebra == '\n') break;
     }  
 
-    preencheListaAmigo(arq, lista);
+    preencheListaAmigo(arqAmigos, lista);
 
-
-    //preencheListaPlaylist();
-    //imprimeListaPessoa(lista);
-
-    fclose(arq);
+    fclose(arqAmigos);
 }

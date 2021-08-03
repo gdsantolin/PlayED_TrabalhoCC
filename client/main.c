@@ -5,7 +5,11 @@
 
 int main(){
     ListaPessoa* pessoas = iniciaListaPessoa();
+
     preencheListaPessoa(pessoas);
+    preencheListaPlaylist(pessoas);
+
     imprimeListaPessoa(pessoas);
+    
     destroiListaPessoa(pessoas);
 }

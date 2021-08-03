@@ -61,7 +61,7 @@ void preencheListaAmigo(FILE* arq, ListaPessoa* lista_pessoa){
 void imprimeListaAmigo(ListaAmigo* lista){
     CelAmigo* cel_aux;
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
-        printf("  %s\n", getNomePessoa(cel_aux->amigo));
+        printf("   %s\n", getNomePessoa(cel_aux->amigo));
     }
 }
 

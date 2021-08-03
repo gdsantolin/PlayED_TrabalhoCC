@@ -39,6 +39,31 @@ void insereListaPlaylist(ListaPlaylist* lista, Playlist* playlist){
     }
 }
 
+void preencheListaPlaylist(ListaPessoa* lista_pessoa){
+    FILE* arq = fopen("data/playlists.txt", "r");
+    char linha[100], nome_pessoa[50], nome_playlist[50], nome_arquivo[50], quebra;
+    int qtd_playlist, w;
+    
+    while(fscanf(arq, "%99[^;];%d;", nome_pessoa, &qtd_playlist) == 2){ //cada loop preenche as playlists de uma pessoa
+        Pessoa* p = buscaPessoa(lista_pessoa, nome_pessoa);
+        //printf("%s %d ", nome_pessoa, qtd_playlist);
+        for(int i = 0; i < qtd_playlist; i++){
+            w = fscanf(arq, "%99[^;^\n]%c", nome_playlist, &quebra);
+            Playlist* playlist = preenchePlaylist(nome_playlist);
+            insereListaPlaylist(getListaPlaylistPessoa(p), playlist);
+        }
+    }
+    fclose(arq);
+}
+
+void imprimeListaPlaylist(ListaPlaylist* lista){
+     CelPlaylist* cel_aux;
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        printf("Playlist %s:\n", getNomePlaylist(cel_aux->playlist));
+        imprimePlaylist(cel_aux->playlist);
+    }
+}
+
 void destroiListaPlaylist(ListaPlaylist* lista){
     CelPlaylist* cel_atual = lista->prim;
     CelPlaylist* cel_prox;
