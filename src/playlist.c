@@ -13,7 +13,7 @@ char* getNomePlaylist(Playlist* p){
 }
 
 Playlist* preenchePlaylist(char* nome_playlist){
-    char nome_arquivo[50], nome_banda[100], nome_musica[100];
+    char nome_arquivo[50], nome_banda[150], nome_musica[150];
 
     Playlist* playlist = (Playlist*)malloc(sizeof(Playlist));
     playlist->nome = strdup(nome_playlist);
@@ -23,10 +23,10 @@ Playlist* preenchePlaylist(char* nome_playlist){
     strcat(nome_arquivo, nome_playlist);
 
     FILE* arq = fopen(nome_arquivo, "r");
-    while(fscanf(arq, "%99[^ -] - %99[^\n]", nome_banda, nome_musica) == 2){
+    while(fscanf(arq, "%149[^-]- %149[^\n] ", nome_banda, nome_musica) == 2){
+        nome_banda[strlen(nome_banda)-1] = '\0'; //tirando o espaço a mais do nome da banda
         Musica* msc = preencheMusica(nome_banda, nome_musica);
         insereListaMusica(playlist->musicas, msc);
-        imprimeListaMusica(playlist->musicas);
     }
 
     fclose(arq);
@@ -35,6 +35,7 @@ Playlist* preenchePlaylist(char* nome_playlist){
 
 void imprimePlaylist(Playlist* p){
     imprimeListaMusica(p->musicas);
+    printf("\n-----------\n");
 }
 
 void destroiPlaylist(Playlist* p){

@@ -39,11 +39,10 @@ void insereListaPessoa(ListaPessoa* lista, Pessoa* p){
 }
 
 void imprimeListaPessoa(ListaPessoa* lista){
-    CelPessoa* cel_aux;
+    CelPessoa* cel_aux = lista->prim;
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
-        //imprimePessoa(cel_aux->pessoa);
+        imprimePessoa(cel_aux->pessoa);
         imprimeListaPlaylist(getListaPlaylistPessoa(cel_aux->pessoa));
-        printf("\n-----------------\n");
     }
 }
 

@@ -57,7 +57,8 @@ void preencheListaPlaylist(ListaPessoa* lista_pessoa){
 }
 
 void imprimeListaPlaylist(ListaPlaylist* lista){
-     CelPlaylist* cel_aux;
+    CelPlaylist* cel_aux;
+    printf("Playlists:\n");
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
         printf("Playlist %s:\n", getNomePlaylist(cel_aux->playlist));
         imprimePlaylist(cel_aux->playlist);
