@@ -8,6 +8,14 @@ struct playlist{
     ListaMusica* musicas;
 };
 
+Playlist* criaPlaylist(char* nome){
+    Playlist* playlist = (Playlist*)malloc(sizeof(Playlist));
+    playlist->nome = strdup(nome);
+    playlist->musicas = iniciaListaMusica();
+
+    return playlist;
+}
+
 char* getNomePlaylist(Playlist* p){
     return p->nome;
 }
@@ -19,15 +27,6 @@ ListaMusica* getListaMusicaPlaylist(Playlist* p){
 void setNomePlaylist(Playlist* p, char* nome){
     p->nome = nome;
 }
-
-Playlist* criaPlaylist(char* nome){
-    Playlist* playlist = (Playlist*)malloc(sizeof(Playlist));
-    playlist->nome = strdup(nome);
-    playlist->musicas = iniciaListaMusica();
-
-    return playlist;
-}
-
 
 Playlist* preenchePlaylist(char* nome_playlist){
     char nome_arquivo[50], nome_banda[150], nome_musica[150];
@@ -48,8 +47,8 @@ Playlist* preenchePlaylist(char* nome_playlist){
     return playlist;
 }
 
-void refatoraPlaylist(Playlist* playlist, ListaPlaylist* lista_refatorada){
-    refatoraListaMusica(playlist->musicas, lista_refatorada);
+void refatoraPlaylist(Playlist* p, ListaPlaylist* lista_refatorada){
+    refatoraListaMusica(p->musicas, lista_refatorada);
 }
 
 void imprimeNovaPlaylistArq(Playlist* p, FILE* arq){

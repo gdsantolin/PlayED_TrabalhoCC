@@ -7,16 +7,16 @@ typedef struct lista_pessoa ListaPessoa;
 
 ListaPessoa* iniciaListaPessoa();
 
+Pessoa* buscaPessoa(ListaPessoa* lista, char* chave); 
+
 void insereListaPessoa(ListaPessoa* lista, Pessoa* p);
 
-void imprimeListaPessoa(ListaPessoa* lista);
-
-Pessoa* buscaPessoa(ListaPessoa* lista, char* chave); 
+void preencheListaPessoa(ListaPessoa* lista);
 
 void refatoraListaPlaylistPessoa(ListaPessoa* lista_p);
 
-void destroiListaPessoa(ListaPessoa* lista);
+void imprimeListaPessoa(ListaPessoa* lista); //não precisa
 
-void preencheListaPessoa(ListaPessoa* lista);
+void destroiListaPessoa(ListaPessoa* lista);
 
 #endif

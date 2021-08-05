@@ -23,6 +23,14 @@ ListaPessoa* iniciaListaPessoa(){
     return lista;
 }
 
+Pessoa* buscaPessoa(ListaPessoa* lista, char* chave){
+    CelPessoa* cel_aux;
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        if(strcmp(getNomePessoa(cel_aux->pessoa), chave) == 0) return cel_aux->pessoa;
+    }
+    return NULL;
+}
+
 void insereListaPessoa(ListaPessoa* lista, Pessoa* p){
     CelPessoa* cel_nova = (CelPessoa*)malloc(sizeof(CelPessoa));
 
@@ -36,34 +44,6 @@ void insereListaPessoa(ListaPessoa* lista, Pessoa* p){
         lista->ult->prox = cel_nova; 
         lista->ult = cel_nova;
     }
-}
-
-void imprimeListaPessoa(ListaPessoa* lista){
-    CelPessoa* cel_aux = lista->prim;
-    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
-        imprimePessoa(cel_aux->pessoa);
-        imprimeListaPlaylist(getListaPlaylistPessoa(cel_aux->pessoa));
-    }
-}
-
-void refatoraListaPlaylistPessoa(ListaPessoa* lista_p){
-    CelPessoa* cel_aux;
-    FILE* arq = fopen("data/played_refatorada.txt", "w");
-
-    for(cel_aux = lista_p->prim; cel_aux != NULL; cel_aux = cel_aux->prox){ //para cada pessoa
-        refatoraListaPlaylist(cel_aux->pessoa); //faz a refatoração da lista de playlists, encadeando a nova lista e destruindo a antiga
-        imprimePlayedRefatorada(cel_aux->pessoa, arq); //cria e escreve no arquivo played_refatorada.txt
-        
-    }
-    fclose(arq);
-}
-
-Pessoa* buscaPessoa(ListaPessoa* lista, char* chave){
-    CelPessoa* cel_aux;
-    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
-        if(strcmp(getNomePessoa(cel_aux->pessoa), chave) == 0) return cel_aux->pessoa;
-    }
-    return NULL;
 }
 
 void preencheListaPessoa(ListaPessoa* lista){
@@ -80,6 +60,26 @@ void preencheListaPessoa(ListaPessoa* lista){
     preencheListaAmigo(arqAmigos, lista);
 
     fclose(arqAmigos);
+}
+
+void refatoraListaPlaylistPessoa(ListaPessoa* lista_p){
+    CelPessoa* cel_aux;
+    FILE* arq = fopen("data/played_refatorada.txt", "w");
+
+    for(cel_aux = lista_p->prim; cel_aux != NULL; cel_aux = cel_aux->prox){ //para cada pessoa
+        refatoraListaPlaylist(cel_aux->pessoa); //faz a refatoração da lista de playlists, encadeando a nova lista e destruindo a antiga
+        imprimePlayedRefatorada(cel_aux->pessoa, arq); //cria e escreve nos arquivos de saída das playlists e no played_refatorada
+    }
+    fclose(arq);
+}
+
+
+void imprimeListaPessoa(ListaPessoa* lista){
+    CelPessoa* cel_aux = lista->prim;
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        imprimePessoa(cel_aux->pessoa);
+        imprimeListaPlaylist(getListaPlaylistPessoa(cel_aux->pessoa));
+    }
 }
 
 void destroiListaPessoa(ListaPessoa* lista){

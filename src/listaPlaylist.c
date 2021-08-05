@@ -73,20 +73,33 @@ void refatoraListaPlaylist(Pessoa* pessoa){
     CelPlaylist* cel_aux;
     ListaPlaylist* lista = getListaPlaylistPessoa(pessoa);
     ListaPlaylist* lista_refatorada = iniciaListaPlaylist();
-    char caminho[100];
 
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){ //para cada playlist de uma pessoa
-        /*
-        strcpy(caminho, "data/");
-        strcat(caminho, getNomePessoa(pessoa));
-        strcat(caminho, "/");
-        
-        mkdir(caminho, 0777);
-        */
         refatoraPlaylist(cel_aux->playlist, lista_refatorada);
     }
+
     destroiListaPlaylist(lista);
     setListaPlaylistRefatoradaPessoa(pessoa, lista_refatorada);
+}
+
+void imprimeNovaListaPlaylistArq(char* nome_pessoa, ListaPlaylist* lista){
+    CelPlaylist* cel_aux;
+
+    char caminho[100] = "data/", caminho_aux[100];
+    strcat(caminho, nome_pessoa);
+    strcat(caminho, "/");
+    mkdir(caminho, 0777);
+
+    strcpy(caminho_aux, caminho);
+
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){ //para cada playlist da lista
+        strcpy(caminho, caminho_aux); //reseta caminho para "data/pessoa/"
+        strcat(caminho, getNomePlaylist(cel_aux->playlist)); //caminho = data/pessoa/banda.txt
+
+        FILE* arq = fopen(caminho, "w");
+        imprimeNovaPlaylistArq(cel_aux->playlist, arq);
+        fclose(arq);
+    }
 }
 
 void imprimeListaPlayedRefatorada(ListaPlaylist* lista, FILE* arq){
@@ -96,42 +109,9 @@ void imprimeListaPlayedRefatorada(ListaPlaylist* lista, FILE* arq){
 
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
         fprintf(arq, "%s", getNomePlaylist(cel_aux->playlist));
+
         if(cel_aux->prox != NULL) fprintf(arq, ";");
         else fprintf(arq, "\n");
-    }
-
-}
-
-void imprimeNovaListaPlaylistArq(char* nome_pessoa, ListaPlaylist* lista){
-    CelPlaylist* cel_aux;
-    FILE* arq;
-
-    char caminho[100] = "data/", caminho_aux[100];
-    strcat(caminho, nome_pessoa);
-    strcat(caminho, "/");
-    mkdir(caminho, 0777);
-
-    strcpy(caminho_aux, caminho);
-
-    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
-        strcpy(caminho, caminho_aux);
-        strcat(caminho, getNomePlaylist(cel_aux->playlist));
-
-        arq = fopen(caminho, "w");
-        imprimeNovaPlaylistArq(cel_aux->playlist, arq);
-        fclose(arq);
-    }
-
-
-}
-
-void imprimeListaPlaylistPessoaArq(ListaPlaylist* lista){
-    CelPlaylist* cel_aux;
-
-    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
-        //fopen()
-        printf("Playlist %s:\n", getNomePlaylist(cel_aux->playlist));
-        imprimePlaylist(cel_aux->playlist);
     }
 }
 

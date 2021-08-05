@@ -35,16 +35,16 @@ void setListaPlaylistRefatoradaPessoa(Pessoa* p, ListaPlaylist* lista){
     p->playlists = lista;
 }
 
+void imprimePlayedRefatorada(Pessoa* p, FILE* arq){
+    fprintf(arq, "%s;", p->nome);
+    imprimeListaPlayedRefatorada(p->playlists, arq); //escreve no arquivo played_refatorada
+    imprimeNovaListaPlaylistArq(p->nome, p->playlists); //escreve nos novos arquivos de playlist
+}
+
 void imprimePessoa(Pessoa* p){
     printf("%s\n", p->nome);
     printf("Amigos:\n");
     imprimeListaAmigo(getListaAmigoPessoa(p));
-}
-
-void imprimePlayedRefatorada(Pessoa* p, FILE* arq){
-    fprintf(arq, "%s;", p->nome);
-    imprimeListaPlayedRefatorada(p->playlists, arq);
-    imprimeNovaListaPlaylistArq(p->nome, p->playlists);
 }
 
 void destroiPessoa(Pessoa* p){

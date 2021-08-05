@@ -16,9 +16,9 @@ ListaPlaylist* getListaPlaylistPessoa(Pessoa* p);
 
 void setListaPlaylistRefatoradaPessoa(Pessoa* p, ListaPlaylist* lista);
 
-void imprimePessoa(Pessoa * p);
-
 void imprimePlayedRefatorada(Pessoa* p, FILE* arq);
+
+void imprimePessoa(Pessoa * p);
 
 void destroiPessoa(Pessoa* p);
 

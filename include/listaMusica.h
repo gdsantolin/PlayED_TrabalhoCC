@@ -12,13 +12,11 @@ Musica* buscaMusica(ListaMusica* lista, char* chave_nome, char* chave_banda);
 
 void insereListaMusica(ListaMusica* lista, Musica* p);
 
-void imprimeListaMusica(ListaMusica* lista);
-
-Musica* retiraListaMusica(ListaMusica* lista, char* chave); //talvez não precise retirar Musicas da lista
-
 void refatoraListaMusica(ListaMusica* lista, ListaPlaylist* lista_refatorada);
 
 void imprimeNovaListaMusicaArq(ListaMusica* lista, FILE* arq);
+
+void imprimeListaMusica(ListaMusica* lista); //não precisa
 
 void destroiListaMusica(ListaMusica* lista);
 

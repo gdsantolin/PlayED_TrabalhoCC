@@ -24,12 +24,12 @@ Musica* preencheMusica(char* nome_banda, char* nome_musica){
     return msc;
 }
 
-void imprimeMusica(Musica* msc){
-    printf("%s | %s\n", msc->banda, msc->nome);
-}
-
 void imprimeMusicaArq(Musica* msc, FILE* arq){
     fprintf(arq, "%s - %s\n", msc->banda, msc->nome);
+}
+
+void imprimeMusica(Musica* msc){
+    printf("%s - %s\n", msc->banda, msc->nome);
 }
 
 void destroiMusica(Musica* msc){

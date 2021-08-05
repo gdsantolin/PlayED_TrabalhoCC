@@ -11,9 +11,9 @@ char* getBandaMusica(Musica* msc);
 
 Musica* preencheMusica(char* nome_banda, char* nome_musica);
 
-void imprimeMusica(Musica* msc);
-
 void imprimeMusicaArq(Musica* msc, FILE* arq);
+
+void imprimeMusica(Musica* msc);
 
 void destroiMusica(Musica* msc);
 

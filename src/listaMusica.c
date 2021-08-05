@@ -53,18 +53,17 @@ void insereListaMusica(ListaMusica* lista, Musica* msc){
 void refatoraListaMusica(ListaMusica* lista, ListaPlaylist* lista_refatorada){
     FILE* arq;
     CelMusica* cel_aux;
-    char nome_arquivo[100];
+    char nome_playlist[100];
     
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
-        strcpy(nome_arquivo, getBandaMusica(cel_aux->msc));
-        strcat(nome_arquivo, ".txt");
+        strcpy(nome_playlist, getBandaMusica(cel_aux->msc));
+        strcat(nome_playlist, ".txt");
 
-        Playlist* playlist = buscaPlaylist(lista_refatorada, nome_arquivo);
-
+        Playlist* playlist = buscaPlaylist(lista_refatorada, nome_playlist);
         Musica* msc = preencheMusica(getBandaMusica(cel_aux->msc), getNomeMusica(cel_aux->msc));
 
         if(playlist == NULL){
-            playlist = criaPlaylist(nome_arquivo);
+            playlist = criaPlaylist(nome_playlist);
             insereListaPlaylist(lista_refatorada, playlist);
             insereListaMusica(getListaMusicaPlaylist(playlist), msc);
         }
@@ -74,8 +73,6 @@ void refatoraListaMusica(ListaMusica* lista, ListaPlaylist* lista_refatorada){
             }
             else destroiMusica(msc);
         }
-
-        //fprintf(arq, "%s - %s\n", getBandaMusica(cel_aux->msc), getNomeMusica(cel_aux->msc)); //precisa verificar se a musica ja existe no arquivo, senao ele vai escrevendo ela toda vez
     }
 }
 
