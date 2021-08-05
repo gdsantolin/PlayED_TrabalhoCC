@@ -10,7 +10,10 @@ int main(){
     preencheListaPlaylist(pessoas);
 
     imprimeListaPessoa(pessoas);
+    printf("\n\n\n");
     
     refatoraListaPlaylistPessoa(pessoas);
+    imprimeListaPessoa(pessoas);
+
     destroiListaPessoa(pessoas);
 }

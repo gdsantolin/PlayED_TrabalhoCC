@@ -14,6 +14,8 @@ ListaAmigo* getListaAmigoPessoa(Pessoa* p);
 
 ListaPlaylist* getListaPlaylistPessoa(Pessoa* p);
 
+void setListaPlaylistRefatoradaPessoa(Pessoa* p, ListaPlaylist* lista);
+
 void imprimePessoa(Pessoa * p);
 
 void destroiPessoa(Pessoa* p);

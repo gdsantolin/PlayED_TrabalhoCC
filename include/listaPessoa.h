@@ -1,8 +1,6 @@
 #ifndef LISTA_PESSOA_H
 #define LISTA_PESSOA_H
 
-typedef struct celula_pessoa CelPessoa;
-
 typedef struct lista_pessoa ListaPessoa;
 
 #include "pessoa.h"

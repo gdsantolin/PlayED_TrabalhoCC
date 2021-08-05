@@ -31,6 +31,10 @@ ListaPlaylist* getListaPlaylistPessoa(Pessoa* p){
     return p->playlists;
 }
 
+void setListaPlaylistRefatoradaPessoa(Pessoa* p, ListaPlaylist* lista){
+    p->playlists = lista;
+}
+
 void imprimePessoa(Pessoa* p){
     printf("%s\n", p->nome);
     printf("Amigos:\n");

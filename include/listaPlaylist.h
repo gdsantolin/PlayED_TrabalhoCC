@@ -8,6 +8,8 @@ typedef struct lista_playlist ListaPlaylist;
 
 ListaPlaylist* iniciaListaPlaylist();
 
+Playlist* buscaPlaylist(ListaPlaylist* lista, char* chave);
+
 void insereListaPlaylist(ListaPlaylist* lista, Playlist* playlist);
 
 void imprimeListaPlaylist(ListaPlaylist* lista);

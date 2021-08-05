@@ -25,6 +25,14 @@ ListaPlaylist* iniciaListaPlaylist(){
     return lista;
 }
 
+Playlist* buscaPlaylist(ListaPlaylist* lista, char* chave){
+    CelPlaylist* cel_aux;
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        if(strcmp(getNomePlaylist(cel_aux->playlist), chave) == 0) return cel_aux->playlist;
+    }
+    return NULL;
+}
+
 void insereListaPlaylist(ListaPlaylist* lista, Playlist* playlist){
     CelPlaylist* cel_nova = (CelPlaylist*)malloc(sizeof(CelPlaylist));
 
@@ -61,15 +69,20 @@ void preencheListaPlaylist(ListaPessoa* lista_pessoa){
 void refatoraListaPlaylist(Pessoa* pessoa){
     CelPlaylist* cel_aux;
     ListaPlaylist* lista = getListaPlaylistPessoa(pessoa);
+    ListaPlaylist* lista_refatorada = iniciaListaPlaylist();
     char caminho[100];
-    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){ //para cada playlist de uma pessoa
         strcpy(caminho, "data/");
         strcat(caminho, getNomePessoa(pessoa));
         strcat(caminho, "/");
         
         mkdir(caminho, 0777);
-        refatoraPlaylist(cel_aux->playlist, caminho);
+        
+        refatoraPlaylist(cel_aux->playlist, caminho, lista_refatorada);
     }
+    destroiListaPlaylist(lista);
+    setListaPlaylistRefatoradaPessoa(pessoa, lista_refatorada);
+
 }
 
 void imprimeListaPlaylist(ListaPlaylist* lista){

@@ -4,6 +4,7 @@
 typedef struct lista_musica ListaMusica;
 
 #include "musica.h"
+#include "listaPlaylist.h"
 
 ListaMusica* iniciaListaMusica();
 
@@ -13,7 +14,7 @@ void imprimeListaMusica(ListaMusica* lista);
 
 Musica* retiraListaMusica(ListaMusica* lista, char* chave); //talvez não precise retirar Musicas da lista
 
-void refatoraListaMusica(ListaMusica* lista, char* caminho);
+void refatoraListaMusica(ListaMusica* lista, char* caminho, ListaPlaylist* lista_refatorada);
 
 void destroiListaMusica(ListaMusica* lista);
 

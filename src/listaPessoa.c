@@ -3,6 +3,8 @@
 #include <string.h>
 #include "../include/listaPessoa.h"
 
+typedef struct celula_pessoa CelPessoa;
+
 struct celula_pessoa{
     Pessoa* pessoa;
     CelPessoa* prox;
@@ -47,7 +49,7 @@ void imprimeListaPessoa(ListaPessoa* lista){
 
 void refatoraListaPlaylistPessoa(ListaPessoa* lista_p){
     CelPessoa* cel_aux;
-    for(cel_aux = lista_p->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+    for(cel_aux = lista_p->prim; cel_aux != NULL; cel_aux = cel_aux->prox){ //para cada pessoa
         refatoraListaPlaylist(cel_aux->pessoa);
     }
 }
@@ -91,3 +93,4 @@ void preencheListaPessoa(ListaPessoa* lista){
 
     fclose(arqAmigos);
 }
+

@@ -12,12 +12,27 @@ char* getNomePlaylist(Playlist* p){
     return p->nome;
 }
 
+ListaMusica* getListaMusicaPlaylist(Playlist* p){
+    return p->musicas;
+}
+
+void setNomePlaylist(Playlist* p, char* nome){
+    p->nome = nome;
+}
+
+Playlist* criaPlaylist(char* nome){
+    Playlist* playlist = (Playlist*)malloc(sizeof(Playlist));
+    playlist->nome = strdup(nome);
+    playlist->musicas = iniciaListaMusica();
+
+    return playlist;
+}
+
+
 Playlist* preenchePlaylist(char* nome_playlist){
     char nome_arquivo[50], nome_banda[150], nome_musica[150];
 
-    Playlist* playlist = (Playlist*)malloc(sizeof(Playlist));
-    playlist->nome = strdup(nome_playlist);
-    playlist->musicas = iniciaListaMusica();
+    Playlist* playlist = criaPlaylist(nome_playlist);
 
     strcpy(nome_arquivo, "data/Entrada/");
     strcat(nome_arquivo, nome_playlist);
@@ -33,8 +48,8 @@ Playlist* preenchePlaylist(char* nome_playlist){
     return playlist;
 }
 
-void refatoraPlaylist(Playlist* playlist, char* caminho){
-    refatoraListaMusica(playlist->musicas, caminho);
+void refatoraPlaylist(Playlist* playlist, char* caminho, ListaPlaylist* lista_refatorada){
+    refatoraListaMusica(playlist->musicas, caminho, lista_refatorada);
 }
 
 void imprimePlaylist(Playlist* p){
