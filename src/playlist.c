@@ -33,6 +33,10 @@ Playlist* preenchePlaylist(char* nome_playlist){
     return playlist;
 }
 
+void refatoraPlaylist(Playlist* playlist, char* caminho){
+    refatoraListaMusica(playlist->musicas, caminho);
+}
+
 void imprimePlaylist(Playlist* p){
     imprimeListaMusica(p->musicas);
     printf("\n-----------\n");

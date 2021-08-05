@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 #include "../include/listaPlaylist.h"
+
 
 typedef struct celula_playlist CelPlaylist;
 
@@ -54,6 +56,20 @@ void preencheListaPlaylist(ListaPessoa* lista_pessoa){
         }
     }
     fclose(arq);
+}
+
+void refatoraListaPlaylist(Pessoa* pessoa){
+    CelPlaylist* cel_aux;
+    ListaPlaylist* lista = getListaPlaylistPessoa(pessoa);
+    char caminho[100];
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        strcpy(caminho, "data/");
+        strcat(caminho, getNomePessoa(pessoa));
+        strcat(caminho, "/");
+        
+        mkdir(caminho, 0777);
+        refatoraPlaylist(cel_aux->playlist, caminho);
+    }
 }
 
 void imprimeListaPlaylist(ListaPlaylist* lista){

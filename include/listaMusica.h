@@ -13,6 +13,8 @@ void imprimeListaMusica(ListaMusica* lista);
 
 Musica* retiraListaMusica(ListaMusica* lista, char* chave); //talvez não precise retirar Musicas da lista
 
+void refatoraListaMusica(ListaMusica* lista, char* caminho);
+
 void destroiListaMusica(ListaMusica* lista);
 
 #endif

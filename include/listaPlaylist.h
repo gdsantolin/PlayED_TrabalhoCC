@@ -16,6 +16,8 @@ Playlist* retiraListaPlaylist(ListaPlaylist* lista, char* chave); //talvez não 
 
 void preencheListaPlaylist(ListaPessoa* lista_pessoa);
 
+void refatoraListaPlaylist(Pessoa* pessoa);
+
 void imprimeListaPlaylist(ListaPlaylist* lista);
 
 void destroiListaPlaylist(ListaPlaylist* lista);

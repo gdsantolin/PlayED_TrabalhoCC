@@ -38,6 +38,22 @@ void insereListaMusica(ListaMusica* lista, Musica* msc){
     }
 }
 
+void refatoraListaMusica(ListaMusica* lista, char* caminho){
+    FILE* arq;
+    CelMusica* cel_aux;
+    char nome_arquivo[100], caminho_aux[100];
+    strcpy(caminho_aux, caminho);
+
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        strcpy(caminho, caminho_aux);
+        strcpy(nome_arquivo, getBandaMusica(cel_aux->msc));
+        strcat(nome_arquivo, ".txt");
+        strcat(caminho, nome_arquivo);
+        arq = fopen(caminho, "a");
+        fclose(arq);
+    }
+}
+
 void imprimeListaMusica(ListaMusica* lista){
     CelMusica* cel_aux;
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){

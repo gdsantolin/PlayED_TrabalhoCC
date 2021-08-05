@@ -11,6 +11,8 @@ char* getNomePlaylist(Playlist* p);
 
 Playlist* preenchePlaylist(char* nome_playlist);
 
+void refatoraPlaylist(Playlist* playlist, char* caminho);
+
 void imprimePlaylist(Playlist* p);
 
 void destroiPlaylist(Playlist* p);
