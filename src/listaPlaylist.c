@@ -15,12 +15,14 @@ struct celula_playlist{
 struct lista_playlist{
     CelPlaylist* prim;
     CelPlaylist* ult;
+    int cont_playlist;
 };
 
 ListaPlaylist* iniciaListaPlaylist(){
     ListaPlaylist* lista = (ListaPlaylist*)malloc(sizeof(ListaPlaylist));
     lista->prim = NULL;
     lista->ult = NULL;
+    lista->cont_playlist = 0;
 
     return lista;
 }
@@ -38,6 +40,7 @@ void insereListaPlaylist(ListaPlaylist* lista, Playlist* playlist){
 
     cel_nova->playlist = playlist;
     cel_nova->prox = NULL;
+    lista->cont_playlist++;
 
     if(lista->prim == NULL){
         lista->prim = cel_nova;
@@ -71,18 +74,65 @@ void refatoraListaPlaylist(Pessoa* pessoa){
     ListaPlaylist* lista = getListaPlaylistPessoa(pessoa);
     ListaPlaylist* lista_refatorada = iniciaListaPlaylist();
     char caminho[100];
+
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){ //para cada playlist de uma pessoa
+        /*
         strcpy(caminho, "data/");
         strcat(caminho, getNomePessoa(pessoa));
         strcat(caminho, "/");
         
         mkdir(caminho, 0777);
-        
-        refatoraPlaylist(cel_aux->playlist, caminho, lista_refatorada);
+        */
+        refatoraPlaylist(cel_aux->playlist, lista_refatorada);
     }
     destroiListaPlaylist(lista);
     setListaPlaylistRefatoradaPessoa(pessoa, lista_refatorada);
+}
 
+void imprimeListaPlayedRefatorada(ListaPlaylist* lista, FILE* arq){
+    CelPlaylist* cel_aux;
+    
+    fprintf(arq, "%d;", lista->cont_playlist);
+
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        fprintf(arq, "%s", getNomePlaylist(cel_aux->playlist));
+        if(cel_aux->prox != NULL) fprintf(arq, ";");
+        else fprintf(arq, "\n");
+    }
+
+}
+
+void imprimeNovaListaPlaylistArq(char* nome_pessoa, ListaPlaylist* lista){
+    CelPlaylist* cel_aux;
+    FILE* arq;
+
+    char caminho[100] = "data/", caminho_aux[100];
+    strcat(caminho, nome_pessoa);
+    strcat(caminho, "/");
+    mkdir(caminho, 0777);
+
+    strcpy(caminho_aux, caminho);
+
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        strcpy(caminho, caminho_aux);
+        strcat(caminho, getNomePlaylist(cel_aux->playlist));
+
+        arq = fopen(caminho, "w");
+        imprimeNovaPlaylistArq(cel_aux->playlist, arq);
+        fclose(arq);
+    }
+
+
+}
+
+void imprimeListaPlaylistPessoaArq(ListaPlaylist* lista){
+    CelPlaylist* cel_aux;
+
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        //fopen()
+        printf("Playlist %s:\n", getNomePlaylist(cel_aux->playlist));
+        imprimePlaylist(cel_aux->playlist);
+    }
 }
 
 void imprimeListaPlaylist(ListaPlaylist* lista){

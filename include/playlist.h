@@ -16,7 +16,9 @@ void setNomePlaylist(Playlist* p, char* nome);
 
 Playlist* preenchePlaylist(char* nome_playlist);
 
-void refatoraPlaylist(Playlist* playlist, char* caminho, ListaPlaylist* lista_refatorada);
+void refatoraPlaylist(Playlist* playlist, ListaPlaylist* lista_refatorada);
+
+void imprimeNovaPlaylistArq(Playlist* p, FILE* arq);
 
 void imprimePlaylist(Playlist* p);
 

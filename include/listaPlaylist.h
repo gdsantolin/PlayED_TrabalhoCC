@@ -14,13 +14,17 @@ void insereListaPlaylist(ListaPlaylist* lista, Playlist* playlist);
 
 void imprimeListaPlaylist(ListaPlaylist* lista);
 
-Playlist* retiraListaPlaylist(ListaPlaylist* lista, char* chave); //talvez não precise retirar Playlists da lista
-
 void preencheListaPlaylist(ListaPessoa* lista_pessoa);
 
 void refatoraListaPlaylist(Pessoa* pessoa);
 
 void imprimeListaPlaylist(ListaPlaylist* lista);
+
+void imprimeNovaListaPlaylistArq(char* nome_pessoa, ListaPlaylist* lista);
+
+void imprimeListaPlaylistPessoaArq(ListaPlaylist* lista); //criar e imprimir os arquivos de playlist refatorados e as musicas
+
+void imprimeListaPlayedRefatorada(ListaPlaylist* lista, FILE* arq);
 
 void destroiListaPlaylist(ListaPlaylist* lista);
 

@@ -28,6 +28,10 @@ void imprimeMusica(Musica* msc){
     printf("%s | %s\n", msc->banda, msc->nome);
 }
 
+void imprimeMusicaArq(Musica* msc, FILE* arq){
+    fprintf(arq, "%s - %s\n", msc->banda, msc->nome);
+}
+
 void destroiMusica(Musica* msc){
     free(msc->banda);
     free(msc->nome);

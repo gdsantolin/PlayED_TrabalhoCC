@@ -41,6 +41,12 @@ void imprimePessoa(Pessoa* p){
     imprimeListaAmigo(getListaAmigoPessoa(p));
 }
 
+void imprimePlayedRefatorada(Pessoa* p, FILE* arq){
+    fprintf(arq, "%s;", p->nome);
+    imprimeListaPlayedRefatorada(p->playlists, arq);
+    imprimeNovaListaPlaylistArq(p->nome, p->playlists);
+}
+
 void destroiPessoa(Pessoa* p){
     free(p->nome);
     destroiListaAmigo(p->amigos);

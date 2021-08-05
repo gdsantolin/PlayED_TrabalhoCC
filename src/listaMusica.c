@@ -50,18 +50,14 @@ void insereListaMusica(ListaMusica* lista, Musica* msc){
     }
 }
 
-void refatoraListaMusica(ListaMusica* lista, char* caminho, ListaPlaylist* lista_refatorada){
+void refatoraListaMusica(ListaMusica* lista, ListaPlaylist* lista_refatorada){
     FILE* arq;
     CelMusica* cel_aux;
-    char nome_arquivo[100], caminho_aux[100];
-    strcpy(caminho_aux, caminho);
+    char nome_arquivo[100];
     
-
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
-        strcpy(caminho, caminho_aux);
         strcpy(nome_arquivo, getBandaMusica(cel_aux->msc));
         strcat(nome_arquivo, ".txt");
-        strcat(caminho, nome_arquivo);
 
         Playlist* playlist = buscaPlaylist(lista_refatorada, nome_arquivo);
 
@@ -79,13 +75,14 @@ void refatoraListaMusica(ListaMusica* lista, char* caminho, ListaPlaylist* lista
             else destroiMusica(msc);
         }
 
-        
-        
-        
-
-        arq = fopen(caminho, "a");
         //fprintf(arq, "%s - %s\n", getBandaMusica(cel_aux->msc), getNomeMusica(cel_aux->msc)); //precisa verificar se a musica ja existe no arquivo, senao ele vai escrevendo ela toda vez
-        fclose(arq);
+    }
+}
+
+void imprimeNovaListaMusicaArq(ListaMusica* lista, FILE* arq){
+    CelMusica* cel_aux;
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        imprimeMusicaArq(cel_aux->msc, arq);
     }
 }
 

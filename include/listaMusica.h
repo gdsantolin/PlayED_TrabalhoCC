@@ -16,7 +16,9 @@ void imprimeListaMusica(ListaMusica* lista);
 
 Musica* retiraListaMusica(ListaMusica* lista, char* chave); //talvez não precise retirar Musicas da lista
 
-void refatoraListaMusica(ListaMusica* lista, char* caminho, ListaPlaylist* lista_refatorada);
+void refatoraListaMusica(ListaMusica* lista, ListaPlaylist* lista_refatorada);
+
+void imprimeNovaListaMusicaArq(ListaMusica* lista, FILE* arq);
 
 void destroiListaMusica(ListaMusica* lista);
 

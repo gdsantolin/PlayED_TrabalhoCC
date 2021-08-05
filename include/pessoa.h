@@ -18,6 +18,8 @@ void setListaPlaylistRefatoradaPessoa(Pessoa* p, ListaPlaylist* lista);
 
 void imprimePessoa(Pessoa * p);
 
+void imprimePlayedRefatorada(Pessoa* p, FILE* arq);
+
 void destroiPessoa(Pessoa* p);
 
 #endif

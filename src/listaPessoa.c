@@ -46,28 +46,16 @@ void imprimeListaPessoa(ListaPessoa* lista){
     }
 }
 
-
 void refatoraListaPlaylistPessoa(ListaPessoa* lista_p){
     CelPessoa* cel_aux;
+    FILE* arq = fopen("data/played_refatorada.txt", "w");
+
     for(cel_aux = lista_p->prim; cel_aux != NULL; cel_aux = cel_aux->prox){ //para cada pessoa
-        refatoraListaPlaylist(cel_aux->pessoa);
+        refatoraListaPlaylist(cel_aux->pessoa); //faz a refatoração da lista de playlists, encadeando a nova lista e destruindo a antiga
+        imprimePlayedRefatorada(cel_aux->pessoa, arq); //cria e escreve no arquivo played_refatorada.txt
+        
     }
-}
-
-
-void destroiListaPessoa(ListaPessoa* lista){
-    CelPessoa* cel_atual = lista->prim;
-    CelPessoa* cel_prox;
-
-    while(cel_atual != NULL){
-        cel_prox = cel_atual->prox;
-
-        destroiPessoa(cel_atual->pessoa);
-        free(cel_atual);
-
-        cel_atual = cel_prox;
-    }
-    free(lista);
+    fclose(arq);
 }
 
 Pessoa* buscaPessoa(ListaPessoa* lista, char* chave){
@@ -92,5 +80,20 @@ void preencheListaPessoa(ListaPessoa* lista){
     preencheListaAmigo(arqAmigos, lista);
 
     fclose(arqAmigos);
+}
+
+void destroiListaPessoa(ListaPessoa* lista){
+    CelPessoa* cel_atual = lista->prim;
+    CelPessoa* cel_prox;
+
+    while(cel_atual != NULL){
+        cel_prox = cel_atual->prox;
+
+        destroiPessoa(cel_atual->pessoa);
+        free(cel_atual);
+
+        cel_atual = cel_prox;
+    }
+    free(lista);
 }
 

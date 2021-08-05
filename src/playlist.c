@@ -48,8 +48,12 @@ Playlist* preenchePlaylist(char* nome_playlist){
     return playlist;
 }
 
-void refatoraPlaylist(Playlist* playlist, char* caminho, ListaPlaylist* lista_refatorada){
-    refatoraListaMusica(playlist->musicas, caminho, lista_refatorada);
+void refatoraPlaylist(Playlist* playlist, ListaPlaylist* lista_refatorada){
+    refatoraListaMusica(playlist->musicas, lista_refatorada);
+}
+
+void imprimeNovaPlaylistArq(Playlist* p, FILE* arq){
+    imprimeNovaListaMusicaArq(p->musicas, arq);
 }
 
 void imprimePlaylist(Playlist* p){
