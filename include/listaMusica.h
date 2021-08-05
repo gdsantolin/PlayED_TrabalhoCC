@@ -8,6 +8,8 @@ typedef struct lista_musica ListaMusica;
 
 ListaMusica* iniciaListaMusica();
 
+Musica* buscaMusica(ListaMusica* lista, char* chave_nome, char* chave_banda);
+
 void insereListaMusica(ListaMusica* lista, Musica* p);
 
 void imprimeListaMusica(ListaMusica* lista);

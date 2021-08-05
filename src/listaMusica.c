@@ -23,6 +23,18 @@ ListaMusica* iniciaListaMusica(){
     return lista;
 }
 
+Musica* buscaMusica(ListaMusica* lista, char* chave_nome, char* chave_banda){
+    CelMusica* cel_aux;
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        if(strcmp(getNomeMusica(cel_aux->msc), chave_nome) == 0){
+            if(strcmp(getBandaMusica(cel_aux->msc), chave_banda) == 0){
+                return cel_aux->msc;
+            }
+        }  
+    }
+    return NULL;
+}
+
 void insereListaMusica(ListaMusica* lista, Musica* msc){
     CelMusica* cel_nova = (CelMusica*)malloc(sizeof(CelMusica));
 
@@ -52,16 +64,24 @@ void refatoraListaMusica(ListaMusica* lista, char* caminho, ListaPlaylist* lista
         strcat(caminho, nome_arquivo);
 
         Playlist* playlist = buscaPlaylist(lista_refatorada, nome_arquivo);
+
         Musica* msc = preencheMusica(getBandaMusica(cel_aux->msc), getNomeMusica(cel_aux->msc));
+
         if(playlist == NULL){
             playlist = criaPlaylist(nome_arquivo);
-            //insereListaMusica(getListaMusicaPlaylist(playlist), msc);
             insereListaPlaylist(lista_refatorada, playlist);
-        }
-        //else{
             insereListaMusica(getListaMusicaPlaylist(playlist), msc);
-        //}
+        }
+        else{
+            if(buscaMusica(getListaMusicaPlaylist(playlist), getNomeMusica(cel_aux->msc), getBandaMusica(cel_aux->msc)) == NULL){
+                insereListaMusica(getListaMusicaPlaylist(playlist), msc);
+            }
+            else destroiMusica(msc);
+        }
 
+        
+        
+        
 
         arq = fopen(caminho, "a");
         //fprintf(arq, "%s - %s\n", getBandaMusica(cel_aux->msc), getNomeMusica(cel_aux->msc)); //precisa verificar se a musica ja existe no arquivo, senao ele vai escrevendo ela toda vez
