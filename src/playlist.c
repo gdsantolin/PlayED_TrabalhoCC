@@ -19,7 +19,7 @@ Playlist* preenchePlaylist(char* nome_playlist){
     playlist->nome = strdup(nome_playlist);
     playlist->musicas = iniciaListaMusica();
 
-    strcpy(nome_arquivo, "data/");
+    strcpy(nome_arquivo, "data/Entrada/");
     strcat(nome_arquivo, nome_playlist);
 
     FILE* arq = fopen(nome_arquivo, "r");

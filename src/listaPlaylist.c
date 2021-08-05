@@ -42,7 +42,7 @@ void insereListaPlaylist(ListaPlaylist* lista, Playlist* playlist){
 }
 
 void preencheListaPlaylist(ListaPessoa* lista_pessoa){
-    FILE* arq = fopen("data/playlists.txt", "r");
+    FILE* arq = fopen("data/Entrada/playlists.txt", "r");
     char linha[100], nome_pessoa[50], nome_playlist[50], nome_arquivo[50], quebra;
     int qtd_playlist, w;
     

@@ -77,7 +77,7 @@ Pessoa* buscaPessoa(ListaPessoa* lista, char* chave){
 }
 
 void preencheListaPessoa(ListaPessoa* lista){
-    FILE* arqAmigos = fopen("data/amizade.txt", "r");
+    FILE* arqAmigos = fopen("data/Entrada/amizade.txt", "r");
     char linha[100], nome_aux[100], quebra;
     Pessoa* pessoa; 
     
