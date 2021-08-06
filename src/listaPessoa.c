@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 #include "../include/listaPessoa.h"
 
 typedef struct celula_pessoa CelPessoa;
@@ -64,7 +65,8 @@ void preencheListaPessoa(ListaPessoa* lista){
 
 void refatoraListaPlaylistPessoa(ListaPessoa* lista_p){
     CelPessoa* cel_aux;
-    FILE* arq = fopen("data/played_refatorada.txt", "w");
+    mkdir("data/Saida/", 0777);
+    FILE* arq = fopen("data/Saida/played_refatorada.txt", "w");
 
     for(cel_aux = lista_p->prim; cel_aux != NULL; cel_aux = cel_aux->prox){ //para cada pessoa
         refatoraListaPlaylist(cel_aux->pessoa); //faz a refatoração da lista de playlists, encadeando a nova lista e destruindo a antiga
@@ -76,11 +78,12 @@ void refatoraListaPlaylistPessoa(ListaPessoa* lista_p){
 void similaridadePlaylistAmigo(ListaPessoa* lista){
     CelPessoa* cel_aux;
     ListaPessoa* repetidos = iniciaListaPessoa();
-    FILE* arq = fopen("data/similaridades.txt", "w");
+    FILE* arq = fopen("data/Saida/similaridades.txt", "w");
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
         comparaAmigoPessoa(cel_aux->pessoa, repetidos, getListaAmigoPessoa(cel_aux->pessoa), arq);
         insereListaPessoa(repetidos, cel_aux->pessoa);
     }  
+
     
     destroiListaRepetidos(repetidos);
     fclose(arq);

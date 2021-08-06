@@ -51,7 +51,6 @@ void insereListaMusica(ListaMusica* lista, Musica* msc){
 }
 
 void refatoraListaMusica(ListaMusica* lista, ListaPlaylist* lista_refatorada){
-    FILE* arq;
     CelMusica* cel_aux;
     char nome_playlist[100];
     

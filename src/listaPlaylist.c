@@ -85,7 +85,7 @@ void refatoraListaPlaylist(Pessoa* pessoa){
 void imprimeNovaListaPlaylistArq(char* nome_pessoa, ListaPlaylist* lista){
     CelPlaylist* cel_aux;
 
-    char caminho[100] = "data/", caminho_aux[100];
+    char caminho[100] = "data/Saida/", caminho_aux[100];
     strcat(caminho, nome_pessoa);
     strcat(caminho, "/");
     mkdir(caminho, 0777);
