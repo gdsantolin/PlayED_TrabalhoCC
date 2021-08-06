@@ -14,6 +14,7 @@ int main(){
     
     refatoraListaPlaylistPessoa(pessoas);
     imprimeListaPessoa(pessoas);
+    similaridadePlaylistAmigo(pessoas);
 
     destroiListaPessoa(pessoas);
 }

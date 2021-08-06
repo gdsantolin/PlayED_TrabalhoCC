@@ -11,6 +11,8 @@ void insereListaAmigo(ListaAmigo* lista, Pessoa* p);
 
 void preencheListaAmigo(FILE* arq, ListaPessoa* lista_pessoa);
 
+void comparaAmigoPessoa(Pessoa* p, ListaPessoa* repetidos, ListaAmigo* lista_amigos, FILE* arq);
+
 void imprimeListaAmigo(ListaAmigo* lista); //não precisa
 
 void destroiListaAmigo(ListaAmigo* lista);

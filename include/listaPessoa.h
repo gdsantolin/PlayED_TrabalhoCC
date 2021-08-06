@@ -15,8 +15,12 @@ void preencheListaPessoa(ListaPessoa* lista);
 
 void refatoraListaPlaylistPessoa(ListaPessoa* lista_p);
 
+void similaridadePlaylistAmigo(ListaPessoa* lista);
+
 void imprimeListaPessoa(ListaPessoa* lista); //não precisa
 
 void destroiListaPessoa(ListaPessoa* lista);
+
+void destroiListaRepetidos(ListaPessoa* lista);
 
 #endif

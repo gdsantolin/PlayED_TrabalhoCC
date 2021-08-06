@@ -55,6 +55,12 @@ void imprimeNovaPlaylistArq(Playlist* p, FILE* arq){
     imprimeNovaListaMusicaArq(p->musicas, arq);
 }
 
+int comparaPlaylistAmigo(Playlist* p1, Playlist* p2){
+    int similaridade = 0;
+    similaridade = comparaListaMusicaAmigo(p1->musicas, p2->musicas);
+    return similaridade;
+}
+
 void imprimePlaylist(Playlist* p){
     imprimeListaMusica(p->musicas);
     printf("\n-----------\n");

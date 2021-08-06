@@ -20,6 +20,8 @@ void imprimeNovaListaPlaylistArq(char* nome_pessoa, ListaPlaylist* lista); //esc
 
 void imprimeListaPlayedRefatorada(ListaPlaylist* lista, FILE* arq); //escrever no arquivo played_refatorada
 
+int comparaListaPlaylistAmigo(ListaPlaylist* lista1, ListaPlaylist* lista2);
+
 void imprimeListaPlaylist(ListaPlaylist* lista); //não precisa
 
 void destroiListaPlaylist(ListaPlaylist* lista);

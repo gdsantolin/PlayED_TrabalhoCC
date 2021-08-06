@@ -73,6 +73,19 @@ void refatoraListaPlaylistPessoa(ListaPessoa* lista_p){
     fclose(arq);
 }
 
+void similaridadePlaylistAmigo(ListaPessoa* lista){
+    CelPessoa* cel_aux;
+    ListaPessoa* repetidos = iniciaListaPessoa();
+    FILE* arq = fopen("data/similaridades.txt", "w");
+    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        comparaAmigoPessoa(cel_aux->pessoa, repetidos, getListaAmigoPessoa(cel_aux->pessoa), arq);
+        insereListaPessoa(repetidos, cel_aux->pessoa);
+    }  
+    
+    destroiListaRepetidos(repetidos);
+    fclose(arq);
+}
+
 
 void imprimeListaPessoa(ListaPessoa* lista){
     CelPessoa* cel_aux = lista->prim;
@@ -92,6 +105,18 @@ void destroiListaPessoa(ListaPessoa* lista){
         destroiPessoa(cel_atual->pessoa);
         free(cel_atual);
 
+        cel_atual = cel_prox;
+    }
+    free(lista);
+}
+
+void destroiListaRepetidos(ListaPessoa* lista){
+    CelPessoa* cel_atual = lista->prim;
+    CelPessoa* cel_prox;
+
+    while(cel_atual != NULL){
+        cel_prox = cel_atual->prox;
+        free(cel_atual);
         cel_atual = cel_prox;
     }
     free(lista);

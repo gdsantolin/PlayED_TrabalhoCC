@@ -20,6 +20,8 @@ void refatoraPlaylist(Playlist* p, ListaPlaylist* lista_refatorada);
 
 void imprimeNovaPlaylistArq(Playlist* p, FILE* arq);
 
+int comparaPlaylistAmigo(Playlist* p1, Playlist* p2);
+
 void imprimePlaylist(Playlist* p);
 
 void destroiPlaylist(Playlist* p);

@@ -58,6 +58,17 @@ void preencheListaAmigo(FILE* arq, ListaPessoa* lista_pessoa){
 
 }
 
+void comparaAmigoPessoa(Pessoa* p, ListaPessoa* repetidos, ListaAmigo* lista_amigos, FILE* arq){
+    CelAmigo* cel_aux;
+    for(cel_aux = lista_amigos->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        int similaridade = 0;
+        if(buscaPessoa(repetidos, getNomePessoa(cel_aux->amigo)) == NULL){
+            similaridade = comparaListaPlaylistAmigo(getListaPlaylistPessoa(p), getListaPlaylistPessoa(cel_aux->amigo));
+            fprintf(arq, "%s;%s;%d\n", getNomePessoa(p), getNomePessoa(cel_aux->amigo), similaridade);
+        }
+    }
+}
+
 void imprimeListaAmigo(ListaAmigo* lista){
     CelAmigo* cel_aux;
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){

@@ -115,6 +115,18 @@ void imprimeListaPlayedRefatorada(ListaPlaylist* lista, FILE* arq){
     }
 }
 
+int comparaListaPlaylistAmigo(ListaPlaylist* lista1, ListaPlaylist* lista2){
+    CelPlaylist* cel_aux;
+    int similaridade = 0;
+    for(cel_aux = lista1->prim; cel_aux != NULL; cel_aux = cel_aux->prox){ //pra cada playlist
+        Playlist* p = buscaPlaylist(lista2, getNomePlaylist(cel_aux->playlist));
+        if(p != NULL){
+            similaridade += comparaPlaylistAmigo(cel_aux->playlist, p);
+        }
+    }
+    return similaridade;
+}
+
 void imprimeListaPlaylist(ListaPlaylist* lista){
     CelPlaylist* cel_aux;
     printf("Playlists:\n");

@@ -83,6 +83,17 @@ void imprimeNovaListaMusicaArq(ListaMusica* lista, FILE* arq){
     }
 }
 
+int comparaListaMusicaAmigo(ListaMusica* lista1, ListaMusica* lista2){
+    CelMusica* cel_aux;
+    int similaridade = 0;
+    for(cel_aux = lista1->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
+        if(buscaMusica(lista2, getNomeMusica(cel_aux->msc), getBandaMusica(cel_aux->msc)) != NULL){
+            similaridade++;
+        }
+    }
+    return similaridade;
+}
+
 void imprimeListaMusica(ListaMusica* lista){
     CelMusica* cel_aux;
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){

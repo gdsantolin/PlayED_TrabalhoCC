@@ -16,6 +16,8 @@ void refatoraListaMusica(ListaMusica* lista, ListaPlaylist* lista_refatorada);
 
 void imprimeNovaListaMusicaArq(ListaMusica* lista, FILE* arq);
 
+int comparaListaMusicaAmigo(ListaMusica* lista1, ListaMusica* lista2);
+
 void imprimeListaMusica(ListaMusica* lista); //não precisa
 
 void destroiListaMusica(ListaMusica* lista);
