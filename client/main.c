@@ -17,4 +17,5 @@ int main(){
     similaridadePlaylistAmigo(pessoas);
 
     destroiListaPessoa(pessoas);
+    //
 }
