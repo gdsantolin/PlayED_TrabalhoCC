@@ -7,7 +7,7 @@ typedef struct lista_playlist ListaPlaylist;
 #include "listaPessoa.h"
 
 /*  Inicializa uma lista encadeada de playlists
-    input:
+    input: Nenhum
     output:
     pré-condição:
     pós-condição:
@@ -15,7 +15,7 @@ typedef struct lista_playlist ListaPlaylist;
 ListaPlaylist* iniciaListaPlaylist();
 
 /*  Busca uma playlist dentro de uma lista de playlists
-    input:
+    input: 
     output: A playlist, se encontrada; NULL, caso contrário.
     pré-condição:
     pós-condição:
@@ -24,7 +24,7 @@ Playlist* buscaPlaylist(ListaPlaylist* lista, char* chave);
 
 /*  Insere uma célula playlist em uma lista encadeada de playlists
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */
@@ -32,7 +32,7 @@ void insereListaPlaylist(ListaPlaylist* lista, Playlist* playlist);
 
 /*  Preenche as listas de playlists de todas as pessoas a partir do arquivo de entrada
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */
@@ -40,7 +40,7 @@ void preencheListaPlaylist(ListaPessoa* lista_pessoa);
 
 /*  Faz a refatoração da lista de playlists de uma pessoa
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */
@@ -48,7 +48,7 @@ void refatoraListaPlaylist(Pessoa* pessoa);
 
 /*  Para cada playlist em uma lista de playlists de uma pessoa, escreve em um arquivo as músicas da playlist
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */
@@ -56,7 +56,7 @@ void imprimeNovaListaPlaylistArq(char* nome_pessoa, ListaPlaylist* lista); //esc
 
 /*  Escreve no arquivo played_refatorada o número de playlists em uma lista de playlists e seus nomes
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */
@@ -76,7 +76,7 @@ void imprimeListaPlaylist(ListaPlaylist* lista); //não precisa
 
 /*  Libera a memória alocada para uma lista de playlists
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */

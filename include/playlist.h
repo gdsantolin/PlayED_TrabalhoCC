@@ -32,7 +32,7 @@ ListaMusica* getListaMusicaPlaylist(Playlist* p);
 
 /*  Define o nome de uma playlist
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */
@@ -48,7 +48,7 @@ Playlist* preenchePlaylist(char* nome_playlist);
 
 /*  Faz a refatoração de uma playlist
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */
@@ -56,7 +56,7 @@ void refatoraPlaylist(Playlist* p, ListaPlaylist* lista_refatorada);
 
 /*  Escreve os dados de uma playlist em um arquivo
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */
@@ -76,7 +76,7 @@ void imprimePlaylist(Playlist* p);
 
 /*  Libera a memória alocada para uma playlist
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */

@@ -15,7 +15,7 @@ ListaAmigo* iniciaListaAmigo();
 
 /*  Insere uma célula amigo em uma lista encadeada de amigos
     input: 
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */

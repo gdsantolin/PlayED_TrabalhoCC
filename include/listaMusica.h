@@ -7,7 +7,7 @@ typedef struct lista_musica ListaMusica;
 #include "listaPlaylist.h"
 
 /*  Inicializa uma lista encadeada de músicas 
-    input:
+    input: Nenhum
     output:
     pré-condição:
     pós-condição:
@@ -32,7 +32,7 @@ void insereListaMusica(ListaMusica* lista, Musica* p);
 
 /*  Faz a refatoração de uma lista de músicas
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */
@@ -40,7 +40,7 @@ void refatoraListaMusica(ListaMusica* lista, ListaPlaylist* lista_refatorada);
 
 /*  Escreve uma lista de músicas em um arquivo
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */
@@ -48,7 +48,7 @@ void imprimeNovaListaMusicaArq(ListaMusica* lista, FILE* arq);
 
 /*  Conta e retorna as similaridades entre duas listas de músicas
     input:
-    output:
+    output: 
     pré-condição:
     pós-condição:
 */
@@ -60,7 +60,7 @@ void imprimeListaMusica(ListaMusica* lista); //não precisa
 
 /*  Libera a memória alocada para uma lista de músicas
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */

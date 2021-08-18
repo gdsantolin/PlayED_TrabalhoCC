@@ -7,7 +7,7 @@ typedef struct pessoa Pessoa;
 #include "listaAmigo.h"
 
 /*  Aloca e preenche uma pessoa com seu nome e inicializa suas listas de playlist e amigos
-    input:
+    input: String com o nome da pessoa a ser preenchida
     output:
     pré-condição:
     pós-condição:
@@ -16,7 +16,7 @@ Pessoa* criaPessoa(char* nome);
 
 /*  Retorna o nome de uma pessoa
     input:
-    output:
+    output: String com o nome da pessoa
     pré-condição:
     pós-condição:
 */
@@ -24,7 +24,7 @@ char* getNomePessoa(Pessoa* p);
 
 /*  Retorna a lista de amigos de uma pessoa
     input:
-    output:
+    output: 
     pré-condição:
     pós-condição:
 */
@@ -40,7 +40,7 @@ ListaPlaylist* getListaPlaylistPessoa(Pessoa* p);
 
 /*  Define uma nova lista de playlists para uma pessoa
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */
@@ -48,7 +48,7 @@ void setListaPlaylistRefatoradaPessoa(Pessoa* p, ListaPlaylist* lista);
 
 /*  Preenche os arquivos de saída de playlists de uma pessoa e o arquivo played_refatorada (linha referente à pessoa passada)
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */
@@ -60,7 +60,7 @@ void imprimePessoa(Pessoa * p); //não precisa
 
 /*  Libera a memória alocada para uma pessoa
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */

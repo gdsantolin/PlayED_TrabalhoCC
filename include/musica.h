@@ -7,7 +7,7 @@ typedef struct musica Musica;
 
 /*  Retorna o nome de uma música
     input: 
-    output:
+    output: String com o nome da música
     pré-condição:
     pós-condição:
 */
@@ -15,7 +15,7 @@ char* getNomeMusica(Musica* msc);
 
 /*  Retorna o nome da banda de uma música
     input:
-    output:
+    output: String com o nome da banda
     pré-condição:
     pós-condição:
 */
@@ -31,7 +31,7 @@ Musica* preencheMusica(char* nome_banda, char* nome_musica);
 
 /*  Escreve os dados de uma música em um arquivo
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */
@@ -43,7 +43,7 @@ void imprimeMusica(Musica* msc); //não precisa
 
 /*  Libera a memória alocada para uma música
     input:
-    output:
+    output: Nenhum
     pré-condição:
     pós-condição:
 */
