@@ -24,10 +24,10 @@ ListaPessoa* iniciaListaPessoa(){
     return lista;
 }
 
-Pessoa* buscaPessoa(ListaPessoa* lista, char* chave){
+Pessoa* buscaPessoa(ListaPessoa* lista, char* chave_nome){
     CelPessoa* cel_aux;
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
-        if(strcmp(getNomePessoa(cel_aux->pessoa), chave) == 0) return cel_aux->pessoa;
+        if(strcmp(getNomePessoa(cel_aux->pessoa), chave_nome) == 0) return cel_aux->pessoa;
     }
     return NULL;
 }
@@ -67,6 +67,10 @@ void refatoraListaPlaylistPessoa(ListaPessoa* lista_p){
     CelPessoa* cel_aux;
     mkdir("data/Saida/", 0777);
     FILE* arq = fopen("data/Saida/played_refatorada.txt", "w");
+    if(arq == NULL){
+        printf("Erro ao abrir o arquivo\n");
+        exit(0);
+    }
 
     for(cel_aux = lista_p->prim; cel_aux != NULL; cel_aux = cel_aux->prox){ //para cada pessoa
         refatoraListaPlaylist(cel_aux->pessoa); //faz a refatoração da lista de playlists, encadeando a nova lista e destruindo a antiga
@@ -79,6 +83,11 @@ void similaridadePlaylistAmigo(ListaPessoa* lista){
     CelPessoa* cel_aux;
     ListaPessoa* repetidos = iniciaListaPessoa();
     FILE* arq = fopen("data/Saida/similaridades.txt", "w");
+    if(arq == NULL){
+        printf("Erro ao abrir o arquivo\n");
+        exit(0);
+    }
+
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
         comparaAmigoPessoa(cel_aux->pessoa, repetidos, getListaAmigoPessoa(cel_aux->pessoa), arq);
         insereListaPessoa(repetidos, cel_aux->pessoa);

@@ -31,14 +31,14 @@ ListaPlaylist* getListaPlaylistPessoa(Pessoa* p){
     return p->playlists;
 }
 
-void setListaPlaylistRefatoradaPessoa(Pessoa* p, ListaPlaylist* lista){
+void setListaPlaylistPessoa(Pessoa* p, ListaPlaylist* lista){
     p->playlists = lista;
 }
 
 void imprimePlayedRefatorada(Pessoa* p, FILE* arq){
     fprintf(arq, "%s;", p->nome);
-    imprimeNovaListaPlaylistArq(p->nome, p->playlists); //escreve nos novos arquivos de playlist
-    imprimeListaPlayedRefatorada(p->playlists, arq); //escreve no arquivo played_refatorada
+    imprimeListaPlaylistArq(p->nome, p->playlists); //escreve nos novos arquivos de playlist
+    imprimeListaPlaylistPlayedRefatorada(p->playlists, arq); //escreve no arquivo played_refatorada
 }
 
 void imprimePessoa(Pessoa* p){

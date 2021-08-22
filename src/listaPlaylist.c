@@ -54,6 +54,11 @@ void insereListaPlaylist(ListaPlaylist* lista, Playlist* playlist){
 
 void preencheListaPlaylist(ListaPessoa* lista_pessoa){
     FILE* arq = fopen("data/Entrada/playlists.txt", "r");
+    if(arq == NULL){
+        printf("Erro ao abrir o arquivo\n");
+        exit(0);
+    }
+
     char linha[100], nome_pessoa[50], nome_playlist[50], nome_arquivo[50], quebra;
     int qtd_playlist, w;
     
@@ -79,10 +84,10 @@ void refatoraListaPlaylist(Pessoa* pessoa){
     }
 
     destroiListaPlaylist(lista);
-    setListaPlaylistRefatoradaPessoa(pessoa, lista_refatorada);
+    setListaPlaylistPessoa(pessoa, lista_refatorada);
 }
 
-void imprimeNovaListaPlaylistArq(char* nome_pessoa, ListaPlaylist* lista){
+void imprimeListaPlaylistArq(char* nome_pessoa, ListaPlaylist* lista){
     CelPlaylist* cel_aux;
 
     char caminho[100] = "data/Saida/", caminho_aux[100];
@@ -97,12 +102,17 @@ void imprimeNovaListaPlaylistArq(char* nome_pessoa, ListaPlaylist* lista){
         strcat(caminho, getNomePlaylist(cel_aux->playlist)); //caminho = data/pessoa/banda.txt
 
         FILE* arq = fopen(caminho, "w");
-        imprimeNovaPlaylistArq(cel_aux->playlist, arq);
+        if(arq == NULL){
+            printf("Erro ao abrir o arquivo\n");
+            exit(0);
+        }
+        
+        imprimePlaylistArq(cel_aux->playlist, arq);
         fclose(arq);
     }
 }
 
-void imprimeListaPlayedRefatorada(ListaPlaylist* lista, FILE* arq){
+void imprimeListaPlaylistPlayedRefatorada(ListaPlaylist* lista, FILE* arq){
     CelPlaylist* cel_aux;
     
     fprintf(arq, "%d;", lista->cont_playlist);

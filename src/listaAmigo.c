@@ -55,7 +55,6 @@ void preencheListaAmigo(FILE* arq, ListaPessoa* lista_pessoa){
         insereListaAmigo(p1_amigos, p2);
         insereListaAmigo(p2_amigos, p1); //amizade reciproca
     }
-
 }
 
 void comparaAmigoPessoa(Pessoa* p, ListaPessoa* repetidos, ListaAmigo* lista_amigos, FILE* arq){

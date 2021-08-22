@@ -75,7 +75,7 @@ void refatoraListaMusica(ListaMusica* lista, ListaPlaylist* lista_refatorada){
     }
 }
 
-void imprimeNovaListaMusicaArq(ListaMusica* lista, FILE* arq){
+void imprimeListaMusicaArq(ListaMusica* lista, FILE* arq){
     CelMusica* cel_aux;
     for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
         imprimeMusicaArq(cel_aux->msc, arq);

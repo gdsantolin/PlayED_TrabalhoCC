@@ -7,46 +7,44 @@ typedef struct lista_amigo ListaAmigo;
 
 /*  Inicializa uma lista encadeada de amigos
     input: Nenhum
-    output: Lista de amigos
+    output: Ponteiro para a lista de amigos
     pré-condição: Nenhuma
-    pós-condição: Lista simplesmente encadeada com sentinela (vazia)
+    pós-condição: Lista de amigos simplesmente encadeada com sentinela (vazia)
 */
 ListaAmigo* iniciaListaAmigo();
 
 /*  Insere uma célula amigo em uma lista encadeada de amigos
-    input: 
+    input: A lista de amigos, a pessoa
     output: Nenhum
-    pré-condição:
-    pós-condição:
+    pré-condição: Lista de amigos está inicializada e pessoa existe
+    pós-condição: Célula amigo inserida na lista de amigos
 */
 void insereListaAmigo(ListaAmigo* lista, Pessoa* p); 
 
 /*  Preenche as listas de amigos de todas as pessoas contidas na lista de pessoas
-    input: Arquivo txt com as relações de amizade, lista de pessoas em que serão preenchidas as listas de amigos
+    input: O arquivo txt com as relações de amizade, a lista de pessoas em que serão preenchidas as listas de amigos
     output: Nenhum
-    pré-condição: 
-    pós-condição: 
+    pré-condição: Arquivo arq existe, lista de pessoas está inicializada
+    pós-condição: Listas de amigos de cada pessoa preenchidas
 */
 void preencheListaAmigo(FILE* arq, ListaPessoa* lista_pessoa);
 
-/*  Conta as similaridades de músicas iguais entre uma pessoa e seus amigos e preenche o arquivo similaridades.txt
-    input:
+/*  Calcula as similaridades de músicas iguais entre uma pessoa e seus amigos e preenche o arquivo similaridades.txt
+    input: A pessoa, a lista de pessoas que já foram comparadas, a lista  de amigos, o arquivo similaridades.txt
     output: Nenhum
-    pré-condição:
-    pós-condição:
+    pré-condição: Pessoa existe, lista de pessoas repetidas e lista de amigos estão inicializadas, arquivo existe
+    pós-condição: Arquivo similaridades.txt foi preenchido
 */
 void comparaAmigoPessoa(Pessoa* p, ListaPessoa* repetidos, ListaAmigo* lista_amigos, FILE* arq);
 
-
-void imprimeListaAmigo(ListaAmigo* lista); //não precisa
-
-
 /*  Libera toda a memória alocada para uma lista de amigos
-    input: Lista de amigos a ser destruída
+    input: A lista de amigos 
     output: Nenhum
-    pré-condição:
-    pós-condição:
+    pré-condição: Lista de amigos está inicializada
+    pós-condição: A memória alocada para a lista de amigos foi liberada
 */
 void destroiListaAmigo(ListaAmigo* lista);
+
+void imprimeListaAmigo(ListaAmigo* lista); //não precisa
 
 #endif

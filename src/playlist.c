@@ -37,6 +37,11 @@ Playlist* preenchePlaylist(char* nome_playlist){
     strcat(nome_arquivo, nome_playlist);
 
     FILE* arq = fopen(nome_arquivo, "r");
+    if(arq == NULL){
+        printf("Erro ao abrir o arquivo\n");
+        exit(0);
+    }
+    
     while(fscanf(arq, "%149[^-]- %149[^\n] ", nome_banda, nome_musica) == 2){
         nome_banda[strlen(nome_banda)-1] = '\0'; //tirando o espaço a mais do nome da banda
         Musica* msc = preencheMusica(nome_banda, nome_musica);
@@ -51,14 +56,12 @@ void refatoraPlaylist(Playlist* p, ListaPlaylist* lista_refatorada){
     refatoraListaMusica(p->musicas, lista_refatorada);
 }
 
-void imprimeNovaPlaylistArq(Playlist* p, FILE* arq){
-    imprimeNovaListaMusicaArq(p->musicas, arq);
+void imprimePlaylistArq(Playlist* p, FILE* arq){
+    imprimeListaMusicaArq(p->musicas, arq);
 }
 
 int comparaPlaylistAmigo(Playlist* p1, Playlist* p2){
-    int similaridade = 0;
-    similaridade = comparaListaMusicaAmigo(p1->musicas, p2->musicas);
-    return similaridade;
+    return comparaListaMusicaAmigo(p1->musicas, p2->musicas);
 }
 
 void imprimePlaylist(Playlist* p){
