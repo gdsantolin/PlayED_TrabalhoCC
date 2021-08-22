@@ -65,8 +65,8 @@ void imprimePlaylistArq(Playlist* p, FILE* arq);
 /*  Conta e retorna as similaridades entre duas playlists
     input: As duas playlists que serão comparadas
     output: Inteiro com a quantidade de músicas iguais nas duas playlists
-    pré-condição:
-    pós-condição:
+    pré-condição: Playlists existem
+    pós-condição: Quantidade de músicas iguais nas playlists foi contada
 */
 int comparaPlaylistAmigo(Playlist* p1, Playlist* p2);
 
