@@ -35,7 +35,7 @@ void insereListaPessoa(ListaPessoa* lista, Pessoa* p);
     pré-condição: Lista de pessoas está inicializada
     pós-condição: Lista de pessoas foi preenchida com todas as pessoas descritas no arquivo
 */
-void preencheListaPessoa(ListaPessoa* lista);
+void preencheListaPessoa(ListaPessoa* lista_pessoas);
 
 /*  Faz a refatoração da lista de playlists de todas as pessoas em uma lista de pessoas
     input: A lista de pessoas

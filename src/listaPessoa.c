@@ -47,18 +47,19 @@ void insereListaPessoa(ListaPessoa* lista, Pessoa* p){
     }
 }
 
-void preencheListaPessoa(ListaPessoa* lista){
+void preencheListaPessoa(ListaPessoa* lista_pessoas){
     FILE* arqAmigos = fopen("data/Entrada/amizade.txt", "r");
     char linha[100], nome_aux[100], quebra;
     Pessoa* pessoa; 
     
     while(fscanf(arqAmigos, "%99[^;^\n]%c", nome_aux, &quebra) == 2){
         pessoa = criaPessoa(nome_aux);
-        insereListaPessoa(lista, pessoa);
+        insereListaPessoa(lista_pessoas, pessoa);
         if(quebra == '\n') break;
     }  
 
-    preencheListaAmigo(arqAmigos, lista);
+    preencheListaAmigo(arqAmigos, lista_pessoas);
+    preencheListaPlaylist(lista_pessoas);
 
     fclose(arqAmigos);
 }

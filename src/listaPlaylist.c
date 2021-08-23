@@ -64,9 +64,9 @@ void preencheListaPlaylist(ListaPessoa* lista_pessoa){
     
     while(fscanf(arq, "%99[^;];%d;", nome_pessoa, &qtd_playlist) == 2){ //cada loop preenche as playlists de uma pessoa
         Pessoa* p = buscaPessoa(lista_pessoa, nome_pessoa);
-        //printf("%s %d ", nome_pessoa, qtd_playlist);
+
         for(int i = 0; i < qtd_playlist; i++){
-            w = fscanf(arq, "%99[^;^\n]%c", nome_playlist, &quebra);
+            w = fscanf(arq, "%99[^;^\n]%c", nome_playlist, &quebra); //essa variavel w foi criada apenas pra evitar um warning de "ignoring return value"
             Playlist* playlist = preenchePlaylist(nome_playlist);
             insereListaPlaylist(getListaPlaylistPessoa(p), playlist);
         }
