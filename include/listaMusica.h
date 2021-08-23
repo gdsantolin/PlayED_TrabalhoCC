@@ -62,6 +62,4 @@ int comparaListaMusicaAmigo(ListaMusica* lista1, ListaMusica* lista2);
 */
 void destroiListaMusica(ListaMusica* lista);
 
-void imprimeListaMusica(ListaMusica* lista); //não precisa
-
 #endif

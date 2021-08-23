@@ -137,15 +137,6 @@ int comparaListaPlaylistAmigo(ListaPlaylist* lista1, ListaPlaylist* lista2){
     return similaridade;
 }
 
-void imprimeListaPlaylist(ListaPlaylist* lista){
-    CelPlaylist* cel_aux;
-    printf("Playlists:\n");
-    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
-        printf("Playlist %s:\n", getNomePlaylist(cel_aux->playlist));
-        imprimePlaylist(cel_aux->playlist);
-    }
-}
-
 void destroiListaPlaylist(ListaPlaylist* lista){
     CelPlaylist* cel_atual = lista->prim;
     CelPlaylist* cel_prox;

@@ -45,6 +45,4 @@ void imprimeMusicaArq(Musica* msc, FILE* arq);
 */
 void destroiMusica(Musica* msc);
 
-void imprimeMusica(Musica* msc); //não precisa
-
 #endif

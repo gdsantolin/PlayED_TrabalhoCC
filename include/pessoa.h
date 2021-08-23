@@ -62,6 +62,4 @@ void imprimePlayedRefatorada(Pessoa* p, FILE* arq);
 */
 void destroiPessoa(Pessoa* p);
 
-void imprimePessoa(Pessoa * p); //não precisa
-
 #endif

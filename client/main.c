@@ -6,16 +6,15 @@
 int main(){
     ListaPessoa* pessoas = iniciaListaPessoa();
 
+    //leitura dos dados a partir dos arquivos
     preencheListaPessoa(pessoas);
     preencheListaPlaylist(pessoas);
 
-    imprimeListaPessoa(pessoas);
-    printf("\n\n\n");
-    
+    //refatoração e similaridades
     refatoraListaPlaylistPessoa(pessoas);
-    imprimeListaPessoa(pessoas);
     similaridadePlaylistAmigo(pessoas);
-
+    
+    //liberação de memória
     destroiListaPessoa(pessoas);
-    //
+    
 }

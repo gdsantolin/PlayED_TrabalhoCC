@@ -68,13 +68,6 @@ void comparaAmigoPessoa(Pessoa* p, ListaPessoa* repetidos, ListaAmigo* lista_ami
     }
 }
 
-void imprimeListaAmigo(ListaAmigo* lista){
-    CelAmigo* cel_aux;
-    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
-        printf("   %s\n", getNomePessoa(cel_aux->amigo));
-    }
-}
-
 void destroiListaAmigo(ListaAmigo* lista){
     CelAmigo* cel_atual = lista->prim;
     CelAmigo* cel_prox;

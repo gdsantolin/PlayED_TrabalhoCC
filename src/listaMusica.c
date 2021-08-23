@@ -93,13 +93,6 @@ int comparaListaMusicaAmigo(ListaMusica* lista1, ListaMusica* lista2){
     return similaridade;
 }
 
-void imprimeListaMusica(ListaMusica* lista){
-    CelMusica* cel_aux;
-    for(cel_aux = lista->prim; cel_aux != NULL; cel_aux = cel_aux->prox){
-        imprimeMusica(cel_aux->msc);
-    }
-}
-
 void destroiListaMusica(ListaMusica* lista){
     CelMusica* cel_atual = lista->prim;
     CelMusica* cel_prox;

@@ -64,11 +64,6 @@ int comparaPlaylistAmigo(Playlist* p1, Playlist* p2){
     return comparaListaMusicaAmigo(p1->musicas, p2->musicas);
 }
 
-void imprimePlaylist(Playlist* p){
-    imprimeListaMusica(p->musicas);
-    printf("\n-----------\n");
-}
-
 void destroiPlaylist(Playlist* p){
     free(p->nome);
     destroiListaMusica(p->musicas);

@@ -45,6 +45,4 @@ void comparaAmigoPessoa(Pessoa* p, ListaPessoa* repetidos, ListaAmigo* lista_ami
 */
 void destroiListaAmigo(ListaAmigo* lista);
 
-void imprimeListaAmigo(ListaAmigo* lista); //não precisa
-
 #endif

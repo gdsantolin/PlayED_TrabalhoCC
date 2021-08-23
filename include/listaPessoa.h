@@ -69,6 +69,4 @@ void destroiListaPessoa(ListaPessoa* lista);
 */
 void destroiListaRepetidos(ListaPessoa* lista);
 
-void imprimeListaPessoa(ListaPessoa* lista); //não precisa
-
 #endif

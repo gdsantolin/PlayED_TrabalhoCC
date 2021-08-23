@@ -78,6 +78,4 @@ int comparaPlaylistAmigo(Playlist* p1, Playlist* p2);
 */
 void destroiPlaylist(Playlist* p);
 
-void imprimePlaylist(Playlist* p); //não precisa
-
 #endif

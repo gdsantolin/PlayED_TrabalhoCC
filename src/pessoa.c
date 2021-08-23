@@ -41,12 +41,6 @@ void imprimePlayedRefatorada(Pessoa* p, FILE* arq){
     imprimeListaPlaylistPlayedRefatorada(p->playlists, arq); //escreve no arquivo played_refatorada
 }
 
-void imprimePessoa(Pessoa* p){
-    printf("%s\n", p->nome);
-    printf("Amigos:\n");
-    imprimeListaAmigo(getListaAmigoPessoa(p));
-}
-
 void destroiPessoa(Pessoa* p){
     free(p->nome);
     destroiListaAmigo(p->amigos);
